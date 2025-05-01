@@ -1,22 +1,24 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
+import { FormsModule } from '@angular/forms'
+import { HeaderComponent } from './components/navigation/header/header.component';
 
 @Component({
   selector: 'app-root',
+  standalone: true,
+  imports: [RouterOutlet, FormsModule, HeaderComponent],
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrl: './app.component.css'
 })
 export class AppComponent {
-  model:any = {};
-  title = 'generate-16-project';
-  loginList:any =[]
-  submit(form:any){
-    if(form.valid){
-      let loginListData:any = localStorage.getItem('loginData')
-      this.loginList = JSON.parse(loginListData);
-      console.log(form,this.model)
-      // this.loginList.push(this.model)
-      localStorage.setItem('loginData',JSON.stringify(this.loginList))
-      form.resetForm()
-    }
+  title = 'learn-new';
+  test = signal('Run signal')
+number = signal(0)
+
+
+  updateNumber(){
+    this.number.update(c => c+1)
+    // this.number += 1
+
   }
 }

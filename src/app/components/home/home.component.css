@@ -1,0 +1,62 @@
+/* section{
+    height: 1440px;
+    width: 1024px;
+} */
+.font-heading {
+   font-size: 72px;
+   font-weight: 96px
+}
+
+
+
+.image-top {
+   position: absolute;
+   max-width: 100%;
+   height: auto;
+   display: block;
+   top: 210px;
+   background: transparent;
+   @media (max-width:1040px) {
+      /* top:430px
+       */
+       display: none;
+   }
+}
+
+.image-base {
+   height: auto;
+   margin: auto;
+}
+
+.btn-secondary {
+   margin-left: 10px;
+   border-radius: 32px;
+}
+
+.btn-download {
+   font-weight: 10px;
+}
+
+section {
+   padding-bottom: 100px;
+}
+
+.download-image {
+   background: transparent;
+   height: 24px;
+   width: 24px;
+}
+.project-section{
+   background-image: url("./../../../../public/doodle-items.png");
+   /* background: transparent; */
+   z-index: 99;
+}
+.container-height{
+   height:700px;
+   background: transparent;
+}
+.img-fluid{
+      max-width: 100%;
+      height: auto;
+   border-radius:15px ;
+}

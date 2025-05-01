@@ -1,0 +1,9 @@
+.contact-us{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.form-control{
+margin: 10px;
+    
+}

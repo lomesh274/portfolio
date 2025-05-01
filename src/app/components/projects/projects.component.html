@@ -1,0 +1,38 @@
+<!-- <div class="project-list project-section">
+  <div class="container">
+    <div class="row">
+      <div class="cal-4 mt-3 p-2">
+        <div class="item-name">
+          <h4>{{ item.name }}</h4>
+        </div>
+        <div class="description">
+          <p>{{ item.description }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<div class="project-section m-auto">
+  <div class="container container-height">
+      <div class="bg-transparent" style="padding-top: 125px 0px 30px 0px;">
+          <h1 class="bg-transparent">My recent work </h1>
+      </div>
+      <div class="row project-section bg-transparent ">
+          <!-- <div class="d-flex align-items-center justify-content-center"> -->
+              @for(item of item ; track  item?.name ){
+                  <div class="col-sm-4 bg-transparent pb-5">
+                      <div class="image-wrapper">
+                          <img  class="img-fluid" [src]="item?.img" alt="">
+                      </div>
+                      <div>
+                          <p>Name: {{item?.name}}</p>
+                      </div>
+                      <!-- <app-projects [item]="item"></app-projects> -->
+                  </div>
+              }
+          <!-- </div> -->
+      </div>
+  </div>
+
+</div>
