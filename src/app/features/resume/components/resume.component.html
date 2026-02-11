@@ -1,0 +1,146 @@
+<div class="resume-container">
+  <div class="container">
+    <!-- Header -->
+    <header class="resume-header">
+      <h1 class="resume-title">Resume</h1>
+      <p class="resume-subtitle">Lomesh Yadav - Senior Full Stack Developer</p>
+      <div class="header-actions">
+        <button mat-raised-button (click)="downloadResume()" color="primary">
+          <mat-icon>download</mat-icon>
+          Download PDF
+        </button>
+      </div>
+    </header>
+
+    <!-- Professional Summary -->
+    <section class="professional-summary">
+      <mat-card class="summary-card">
+        <h2>Professional Summary</h2>
+        <p>{{ professionalSummary }}</p>
+      </mat-card>
+    </section>
+
+    <!-- Main Content Tabs -->
+    <mat-tab-group class="resume-tabs" dynamicHeight>
+      <!-- Experience Tab -->
+      <mat-tab label="Experience">
+        <div class="tab-content">
+          <div class="experience-timeline">
+            @for (exp of experiences; track exp.id) {
+              <mat-card class="experience-card">
+                <div class="experience-header">
+                  <div class="experience-info">
+                    <h3>{{ exp.position }}</h3>
+                    <div class="company-details">
+                      <span class="company">{{ exp.company }}</span>
+                      <span class="location">{{ exp.location }}</span>
+                    </div>
+                    <div class="duration">
+                      {{ exp.startDate }} - {{ exp.current ? 'Present' : exp.endDate }}
+                      @if (exp.current) {
+                        <span class="current-badge">Current</span>
+                      }
+                    </div>
+                  </div>
+                </div>
+                
+                <ul class="experience-description">
+                  @for (desc of exp.description; track desc) {
+                    <li>{{ desc }}</li>
+                  }
+                </ul>
+                
+                <div class="technologies">
+                  <h4>Technologies Used:</h4>
+                  <div class="tech-tags">
+                    @for (tech of exp.technologies; track tech) {
+                      <span class="tech-tag">{{ tech }}</span>
+                    }
+                  </div>
+                </div>
+              </mat-card>
+            }
+          </div>
+        </div>
+      </mat-tab>
+
+      <!-- Skills Tab -->
+      <mat-tab label="Skills">
+        <div class="tab-content">
+          <div class="skills-section">
+            @for (category of skills | keyvalue; track category.key) {
+              <mat-card class="skills-card">
+                <h3>{{ category.key | titlecase }}</h3>
+                <div class="skill-levels">
+                  @for (level of category.value | keyvalue; track level.key) {
+                    <div class="skill-group">
+                      <h4>{{ level.key | titlecase }}</h4>
+                      <div class="skill-list">
+                        @for (skill of level.value; track skill) {
+                          <span class="skill-item">{{ skill }}</span>
+                        }
+                      </div>
+                    </div>
+                  }
+                </div>
+              </mat-card>
+            }
+          </div>
+        </div>
+      </mat-tab>
+
+      <!-- Education Tab -->
+      <mat-tab label="Education">
+        <div class="tab-content">
+          <div class="education-section">
+            @for (edu of education; track edu.id) {
+              <mat-card class="education-card">
+                <div class="education-header">
+                  <div class="education-info">
+                    <h3>{{ edu.degree }}</h3>
+                    <div class="institution-details">
+                      <span class="institution">{{ edu.institution }}</span>
+                      <span class="field">{{ edu.field }}</span>
+                    </div>
+                    <div class="education-meta">
+                      <span class="location">{{ edu.location }}</span>
+                      <span class="dates">{{ edu.startDate }} - {{ edu.endDate }}</span>
+                      @if (edu.gpa) {
+                        <span class="gpa">GPA: {{ edu.gpa }}</span>
+                      }
+                    </div>
+                  </div>
+                </div>
+              </mat-card>
+            }
+          </div>
+        </div>
+      </mat-tab>
+
+      <!-- Certifications Tab -->
+      <mat-tab label="Certifications">
+        <div class="tab-content">
+          <div class="certifications-section">
+            @for (cert of certifications; track cert.name) {
+              <mat-card class="certification-card">
+                <div class="certification-content">
+                  <div class="certification-info">
+                    <h3>{{ cert.name }}</h3>
+                    <div class="certification-details">
+                      <span class="issuer">{{ cert.issuer }}</span>
+                      <span class="date">{{ cert.date }}</span>
+                      @if (cert.credentialId) {
+                        <span class="credential-id">ID: {{ cert.credentialId }}</span>
+                      }
+                    </div>
+                  </div>
+                  <mat-icon class="certification-icon">verified</mat-icon>
+                </div>
+              </mat-card>
+            }
+          </div>
+        </div>
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+</div>

@@ -1,24 +1,19 @@
-import { Component, signal } from '@angular/core';
+import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
-import { FormsModule } from '@angular/forms'
-import { HeaderComponent } from './components/navigation/header/header.component';
+import { NavbarComponent } from './core/components/navbar/navbar.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, FormsModule, HeaderComponent],
+  imports: [
+    CommonModule,
+    RouterOutlet,
+    NavbarComponent
+  ],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'learn-new';
-  test = signal('Run signal')
-number = signal(0)
-
-
-  updateNumber(){
-    this.number.update(c => c+1)
-    // this.number += 1
-
-  }
+  title = 'Developer Portfolio';
 }
