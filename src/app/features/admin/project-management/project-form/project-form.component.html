@@ -1,0 +1,61 @@
+<div class="project-form-container">
+  <div class="form-header">
+    <h1 class="form-title">{{ isEditMode ? 'Edit Project' : 'Add New Project' }}</h1>
+    <button mat-button routerLink="/admin/projects" class="back-button">
+      <mat-icon>arrow_back</mat-icon>
+      Back to Projects
+    </button>
+  </div>
+
+  <mat-card class="form-card">
+    <mat-card-content>
+      <form class="project-form">
+        <!-- Title Field -->
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Project Title</mat-label>
+          <input matInput placeholder="Enter project title">
+        </mat-form-field>
+
+        <!-- Description Field -->
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Description</mat-label>
+          <textarea matInput placeholder="Enter project description" rows="4"></textarea>
+        </mat-form-field>
+
+        <!-- Technologies Field -->
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Technologies</mat-label>
+          <input matInput placeholder="e.g., Angular, TypeScript, Node.js">
+        </mat-form-field>
+
+        <!-- GitHub URL Field -->
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>GitHub URL</mat-label>
+          <input matInput placeholder="https://github.com/username/repo">
+        </mat-form-field>
+
+        <!-- Live URL Field -->
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Live Demo URL</mat-label>
+          <input matInput placeholder="https://example.com">
+        </mat-form-field>
+
+        <!-- Featured Checkbox -->
+        <mat-checkbox class="featured-checkbox">
+          Featured Project
+        </mat-checkbox>
+
+        <!-- Form Actions -->
+        <div class="form-actions">
+          <button mat-button type="button" (click)="cancel()" class="cancel-button">
+            Cancel
+          </button>
+          <button mat-raised-button color="primary" type="button" (click)="saveProject()" class="save-button">
+            <mat-icon>save</mat-icon>
+            {{ isEditMode ? 'Update' : 'Save' }} Project
+          </button>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

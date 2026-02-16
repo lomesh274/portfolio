@@ -1,0 +1,49 @@
+<div class="project-container">
+  <div class="project-header">
+    <h1 class="project-title">Project Management</h1>
+    <button mat-raised-button color="primary" routerLink="/admin/projects/add" class="add-button">
+      <mat-icon>add</mat-icon>
+      Add Project
+    </button>
+  </div>
+
+  <mat-card class="project-card">
+    <mat-card-content>
+      <table mat-table [dataSource]="projects">
+        <!-- Title Column -->
+        <ng-container matColumnDef="title">
+          <th mat-header-cell *matHeaderCellDef>Title</th>
+          <td mat-cell *matCellDef="let project">{{ project.title }}</td>
+        </ng-container>
+
+        <!-- Description Column -->
+        <ng-container matColumnDef="description">
+          <th mat-header-cell *matHeaderCellDef>Description</th>
+          <td mat-cell *matCellDef="let project">{{ project.description }}</td>
+        </ng-container>
+
+        <!-- Technologies Column -->
+        <ng-container matColumnDef="technologies">
+          <th mat-header-cell *matHeaderCellDef>Technologies</th>
+          <td mat-cell *matCellDef="let project">{{ project.technologies }}</td>
+        </ng-container>
+
+        <!-- Actions Column -->
+        <ng-container matColumnDef="actions">
+          <th mat-header-cell *matHeaderCellDef>Actions</th>
+          <td mat-cell *matCellDef="let project">
+            <button mat-icon-button color="primary" [routerLink]="'/admin/projects/edit/' + project.id" matTooltip="Edit">
+              <mat-icon>edit</mat-icon>
+            </button>
+            <button mat-icon-button color="warn" (click)="deleteProject(project.id)" matTooltip="Delete">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </mat-card-content>
+  </mat-card>
+</div>

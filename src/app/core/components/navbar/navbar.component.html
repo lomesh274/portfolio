@@ -7,7 +7,7 @@
 
     <!-- Desktop Navigation -->
     <nav class="desktop-nav">
-      @for (item of navItems; track item.path) {
+      @for (item of navItemsArray; track item.path) {
         <a 
           mat-button 
           routerLink="{{item.path}}" 
@@ -20,7 +20,7 @@
       }
     </nav>
 
-    <!-- Theme Toggle & Mobile Menu -->
+    <!-- Theme Toggle & Auth Actions -->
     <div class="navbar-actions">
       <button 
         mat-icon-button 
@@ -30,6 +30,22 @@
       >
         <mat-icon>{{ themeIcon }}</mat-icon>
       </button>
+
+      <!-- Auth Actions -->
+      @if (!authService.isAuthenticated()) {
+        <a mat-button routerLink="/auth/login" class="login-button">
+          Login
+        </a>
+      } @else {
+        <button 
+          mat-icon-button 
+          (click)="authService.logout().subscribe()"
+          class="logout-button"
+          aria-label="Logout"
+        >
+          <mat-icon>logout</mat-icon>
+        </button>
+      }
 
       <!-- Mobile Menu Toggle -->
       <button 
@@ -49,7 +65,7 @@
     [class.open]="isMenuOpen()"
   >
     <nav class="mobile-nav-content">
-      @for (item of navItems; track item.path) {
+      @for (item of navItemsArray; track item.path) {
         <a 
           mat-button 
           routerLink="{{item.path}}" 
