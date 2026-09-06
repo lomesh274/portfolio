@@ -218,6 +218,21 @@ import { Skill } from '../../data/portfolio-data';
         }
       }
     }
+
+    @media (max-width: 640px) {
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+      .filter-tabs {
+        gap: 0.5rem;
+        margin-bottom: 2rem;
+
+        .tab-btn {
+          padding: 0.55rem 1rem;
+          font-size: 0.8rem;
+        }
+      }
+    }
   `]
 })
 export class SkillsComponent {

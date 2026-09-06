@@ -262,10 +262,25 @@ import { PortfolioService } from '../../services/portfolio.service';
     @media (max-width: 640px) {
       .timeline-item {
         flex-direction: column;
-        gap: 1rem;
+        gap: 0.8rem;
 
-        .marker-line {
-          display: none;
+        .timeline-marker {
+          align-self: flex-start;
+          .marker-dot {
+            width: 40px;
+            height: 40px;
+            font-size: 1.1rem;
+          }
+          .marker-line {
+            display: none;
+          }
+        }
+
+        .timeline-content {
+          padding: 1.25rem;
+          .item-header .role-title {
+            font-size: 1.1rem;
+          }
         }
       }
     }

@@ -33,7 +33,7 @@ import { PortfolioService } from '../../services/portfolio.service';
             <i class="fa-solid fa-user-shield"></i> Admin
           </a>
 
-          <a [href]="portfolio.personal.resumeUrl" (click)="openResume($event)" class="btn btn-outline btn-sm resume-btn">
+          <a [href]="portfolio.personal.resumeUrl" target="_blank" download="Lomesh_Yadav_Resume.pdf" class="btn btn-outline btn-sm resume-btn">
             <i class="fa-solid fa-file-pdf"></i> Resume
           </a>
 
@@ -65,6 +65,9 @@ import { PortfolioService } from '../../services/portfolio.service';
           </a>
           <a href="#contact" (click)="closeMobileMenu()" class="mobile-item">
             <i class="fa-solid fa-paper-plane"></i> Contact Me
+          </a>
+          <a [href]="portfolio.personal.resumeUrl" target="_blank" download="Lomesh_Yadav_Resume.pdf" (click)="closeMobileMenu()" class="mobile-item resume-mobile">
+            <i class="fa-solid fa-file-pdf"></i> Download Resume (PDF)
           </a>
           <a [routerLink]="['/admin']" (click)="closeMobileMenu()" class="mobile-item admin-mobile">
             <i class="fa-solid fa-user-shield"></i> Admin Control Panel
@@ -243,6 +246,17 @@ import { PortfolioService } from '../../services/portfolio.service';
           color: var(--cyber-cyan);
         }
 
+        &.resume-mobile {
+          color: #ff4d6d;
+          background: rgba(221, 0, 49, 0.12);
+          border: 1px solid rgba(221, 0, 49, 0.3);
+          font-weight: 700;
+
+          i {
+            color: #dd0031;
+          }
+        }
+
         &.admin-mobile {
           color: var(--cyber-purple);
           background: rgba(139, 92, 246, 0.15);
@@ -264,6 +278,16 @@ import { PortfolioService } from '../../services/portfolio.service';
       .mobile-toggle { display: flex; align-items: center; justify-content: center; }
       .resume-btn { display: none; }
     }
+
+    @media (max-width: 640px) {
+      .admin-link, .hire-btn { display: none !important; }
+      .brand-logo .logo-text .role { display: none; }
+      .mobile-menu {
+        left: 0.75rem;
+        right: 0.75rem;
+        padding: 1rem;
+      }
+    }
   `]
 })
 export class NavbarComponent {
@@ -272,8 +296,6 @@ export class NavbarComponent {
 
   protected isScrolled = signal(false);
   protected mobileMenuOpen = signal(false);
-  
-  onResumeClick = output<void>();
 
   constructor() {
     if (typeof window !== 'undefined') {
@@ -289,10 +311,5 @@ export class NavbarComponent {
 
   closeMobileMenu() {
     this.mobileMenuOpen.set(false);
-  }
-
-  openResume(event: Event) {
-    event.preventDefault();
-    this.onResumeClick.emit();
   }
 }

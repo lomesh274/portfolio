@@ -126,6 +126,21 @@ import { PortfolioService } from '../../services/portfolio.service';
         color: var(--cyber-cyan);
       }
     }
+
+    @media (max-width: 768px) {
+      .footer-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 1.5rem;
+      }
+      .footer-left {
+        max-width: 100%;
+        .footer-logo {
+          justify-content: center;
+        }
+      }
+    }
   `]
 })
 export class FooterComponent {

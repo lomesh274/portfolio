@@ -109,8 +109,13 @@ import { Skill, Project, Experience } from '../../data/portfolio-data';
                 </div>
 
                 <div class="form-group full-col">
-                  <label>Avatar / Profile Image URL (Firebase Storage Link: e-commers-82209.firebasestorage.app)</label>
+                  <label>Avatar / Profile Image URL</label>
                   <input type="text" [(ngModel)]="personalForm.avatarUrl" name="avatarUrl" class="form-input" required />
+                </div>
+
+                <div class="form-group full-col">
+                  <label>Resume File / PDF URL (e.g. "assets/resume/Lomesh_Yadav_Resume.pdf" or Google Drive Link)</label>
+                  <input type="text" [(ngModel)]="personalForm.resumeUrl" name="resumeUrl" class="form-input" placeholder="assets/resume/Lomesh_Yadav_Resume.pdf" />
                 </div>
 
                 <div class="form-group full-col">
@@ -686,6 +691,29 @@ import { Skill, Project, Experience } from '../../data/portfolio-data';
 
     @media (max-width: 768px) {
       .form-grid { grid-template-columns: 1fr; .full-col { grid-column: span 1; } }
+      .admin-tabs {
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        padding-bottom: 0.5rem;
+        -webkit-overflow-scrolling: touch;
+
+        .tab-btn {
+          flex-shrink: 0;
+          padding: 0.65rem 1rem;
+          font-size: 0.82rem;
+        }
+      }
+      .tab-content {
+        padding: 1.25rem;
+      }
+      .modal-card {
+        padding: 1.25rem;
+        max-width: 95vw;
+        .modal-btn-row {
+          flex-direction: column;
+          .btn { width: 100%; }
+        }
+      }
     }
   `]
 })

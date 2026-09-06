@@ -286,6 +286,15 @@ import { Project } from '../../data/portfolio-data';
       from { opacity: 0; }
       to { opacity: 1; }
     }
+
+    @media (max-width: 640px) {
+      .modal-backdrop { padding: 0.8rem; }
+      .modal-banner { height: 200px; }
+      .modal-banner .banner-overlay .banner-title { font-size: 1.25rem; }
+      .metrics-grid { grid-template-columns: 1fr; }
+      .modal-body { padding: 1.2rem; gap: 1.2rem; }
+      .modal-footer { flex-direction: column; .btn { width: 100%; } }
+    }
   `]
 })
 export class ProjectModalComponent {

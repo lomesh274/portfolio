@@ -37,6 +37,9 @@ export class PortfolioService {
           if (parsed?.personal?.avatarUrl?.includes('unsplash.com')) {
             parsed.personal.avatarUrl = 'assets/images/lomesh-avatar.jpg';
           }
+          if (!parsed?.personal?.resumeUrl || parsed?.personal?.resumeUrl === '#resume') {
+            parsed.personal.resumeUrl = 'assets/resume/Lomesh_Yadav_Resume.pdf';
+          }
           return parsed;
         } catch (e) {
           console.error('Error parsing local portfolio data:', e);
@@ -50,8 +53,16 @@ export class PortfolioService {
     this.isSyncing.set(true);
     const remoteData = await this.firebaseService.loadPortfolioFromFirebase();
     if (remoteData) {
+      let needsSave = false;
       if (!remoteData.personal?.avatarUrl || remoteData.personal.avatarUrl.includes('unsplash.com')) {
         remoteData.personal.avatarUrl = 'assets/images/lomesh-avatar.jpg';
+        needsSave = true;
+      }
+      if (!remoteData.personal?.resumeUrl || remoteData.personal.resumeUrl === '#resume') {
+        remoteData.personal.resumeUrl = 'assets/resume/Lomesh_Yadav_Resume.pdf';
+        needsSave = true;
+      }
+      if (needsSave) {
         await this.firebaseService.savePortfolioToFirebase(remoteData);
       }
       this.portfolioData.set(remoteData);

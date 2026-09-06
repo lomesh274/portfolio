@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component } from '@angular/core';
 import { NavbarComponent } from '../../components/navbar/navbar';
 import { HeroComponent } from '../../components/hero/hero';
 import { AboutComponent } from '../../components/about/about';
@@ -7,7 +7,6 @@ import { ProjectsComponent } from '../../components/projects/projects';
 import { ExperienceComponent } from '../../components/experience/experience';
 import { ContactComponent } from '../../components/contact/contact';
 import { FooterComponent } from '../../components/footer/footer';
-import { ResumeModalComponent } from '../../components/resume-modal/resume-modal';
 
 @Component({
   selector: 'app-portfolio-view',
@@ -20,8 +19,7 @@ import { ResumeModalComponent } from '../../components/resume-modal/resume-modal
     ProjectsComponent,
     ExperienceComponent,
     ContactComponent,
-    FooterComponent,
-    ResumeModalComponent
+    FooterComponent
   ],
   template: `
     <!-- Ambient Background Glow FX Orbs -->
@@ -32,11 +30,11 @@ import { ResumeModalComponent } from '../../components/resume-modal/resume-modal
     </div>
 
     <!-- Header Navigation -->
-    <app-navbar (onResumeClick)="openResumeModal()"></app-navbar>
+    <app-navbar></app-navbar>
 
     <!-- Main Page Sections -->
     <main>
-      <app-hero (onResumeClick)="openResumeModal()"></app-hero>
+      <app-hero></app-hero>
       <app-about></app-about>
       <app-skills></app-skills>
       <app-projects></app-projects>
@@ -46,22 +44,6 @@ import { ResumeModalComponent } from '../../components/resume-modal/resume-modal
 
     <!-- Footer -->
     <app-footer></app-footer>
-
-    <!-- Interactive Recruiter Resume Modal -->
-    <app-resume-modal 
-      [isOpen]="resumeModalOpen()" 
-      (onClose)="closeResumeModal()">
-    </app-resume-modal>
   `
 })
-export class PortfolioViewComponent {
-  protected resumeModalOpen = signal(false);
-
-  openResumeModal() {
-    this.resumeModalOpen.set(true);
-  }
-
-  closeResumeModal() {
-    this.resumeModalOpen.set(false);
-  }
-}
+export class PortfolioViewComponent {}

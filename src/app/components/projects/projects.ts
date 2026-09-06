@@ -308,6 +308,18 @@ import { ProjectModalComponent } from '../project-modal/project-modal';
       .projects-grid {
         grid-template-columns: 1fr;
       }
+      .project-filters {
+        gap: 0.5rem;
+        margin-bottom: 2rem;
+
+        .filter-btn {
+          padding: 0.55rem 1rem;
+          font-size: 0.8rem;
+        }
+      }
+      .project-card .card-image-wrapper {
+        height: 190px;
+      }
     }
   `]
 })

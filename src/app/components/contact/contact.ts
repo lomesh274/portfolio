@@ -331,6 +331,20 @@ import { EmailService } from '../../services/email.service';
     @media (max-width: 868px) {
       .contact-grid {
         grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .contact-form-col {
+        padding: 1.25rem;
+      }
+      .contact-info-col .info-card {
+        padding: 1rem;
+        .info-details .info-val {
+          font-size: 0.9rem;
+          word-break: break-word;
+        }
       }
     }
   `]

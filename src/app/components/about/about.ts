@@ -214,25 +214,28 @@ import { PortfolioService } from '../../services/portfolio.service';
         display: flex;
         align-items: center;
         gap: 1.2rem;
-        margin-bottom: 2rem;
+        margin-bottom: 1.8rem;
         padding-bottom: 1.5rem;
         border-bottom: 1px solid var(--border-color);
 
         .profile-img {
-          width: 60px;
-          height: 60px;
+          width: 76px;
+          height: 76px;
           border-radius: 50%;
           object-fit: cover;
-          border: 2px solid var(--cyber-cyan);
+          border: 3px solid var(--cyber-cyan);
+          box-shadow: 0 0 20px rgba(6, 182, 212, 0.4);
+          flex-shrink: 0;
         }
 
         h3 {
-          font-size: 1.15rem;
-          font-weight: 700;
+          font-size: 1.3rem;
+          font-weight: 800;
+          color: #ffffff;
         }
 
         .exp-tag {
-          font-size: 0.8rem;
+          font-size: 0.82rem;
           color: var(--cyber-cyan);
           font-weight: 600;
           font-family: var(--font-mono);
@@ -250,6 +253,7 @@ import { PortfolioService } from '../../services/portfolio.service';
           align-items: center;
           justify-content: space-between;
           font-size: 0.9rem;
+          gap: 0.5rem;
 
           .spec-key {
             color: var(--text-muted);
@@ -286,6 +290,25 @@ import { PortfolioService } from '../../services/portfolio.service';
     @media (max-width: 992px) {
       .about-grid {
         grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+      .about-side-card {
+        order: -1;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .about-main-card, .about-side-card {
+        padding: 1.4rem 1.2rem;
+      }
+      .spec-row {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+
+        .spec-val {
+          font-size: 0.85rem;
+        }
       }
     }
   `]

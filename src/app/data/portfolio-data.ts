@@ -77,7 +77,7 @@ export const PORTFOLIO_DATA: PortfolioData = {
     bio: 'Frontend Engineer with 3+ years building scalable web applications, primarily in Angular with growing hands-on experience in React. Delivered features across a product-based ITSM platform and a client HRMS system, covering component architecture, state management, and API integration. Comfortable using AI-assisted tools like Cursor to move faster without cutting corners on code quality.',
     availability: 'Open for Frontend Engineer & Angular Roles',
     avatarUrl: 'assets/images/lomesh-avatar.jpg',
-    resumeUrl: '#resume',
+    resumeUrl: 'assets/resume/Lomesh_Yadav_Resume.pdf',
     github: 'https://github.com/lomesh01',
     linkedin: 'https://www.linkedin.com/in/lomesh-yadav-b815b4219/',
   },
