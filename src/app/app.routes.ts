@@ -1,19 +1,12 @@
 import { Routes } from '@angular/router';
-import { HomeComponent } from './components/home/home.component';
-import { NoPageFoundComponent } from './components/no-page-found/no-page-found.component';
-import { ProjectsComponent } from './components/projects/projects.component';
+import { PortfolioViewComponent } from './pages/portfolio-view/portfolio-view';
+import { AdminDashboardComponent } from './pages/admin/admin';
+import { LoginComponent } from './pages/login/login';
+import { authGuard } from './guards/auth.guard';
 
 export const routes: Routes = [
-    {
-        path:'',
-        component:HomeComponent
-    },
-    {
-        path:'projects',
-        component:ProjectsComponent
-    },
-    {
-        path: '**',
-        component: NoPageFoundComponent
-    }
+  { path: '', component: PortfolioViewComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'admin', component: AdminDashboardComponent, canActivate: [authGuard] },
+  { path: '**', redirectTo: '' }
 ];
